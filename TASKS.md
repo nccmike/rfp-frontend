@@ -64,10 +64,12 @@
 
 ### Phase 2: Query History & Management
 
-- [ ] Query History System
+- [x] Query History System
 
-  - [ ] Create QueryHistory component
-  - [ ] Implement query storage and retrieval
+  - [x] Create QueryHistory component
+  - [x] Implement query storage and retrieval
+  - [x] Add search history dropdown
+  - [x] Implement light/dark mode styling
   - [ ] Add query filtering and search
   - [ ] Create query analytics view
 
@@ -234,6 +236,15 @@
 - [ ] Create content type filters
 - [ ] Add relevance score filters
 - [ ] Implement industry/department filters
+
+- [x] Add search history feature
+  - [x] Create useSearchHistory hook
+  - [x] Implement local storage caching
+  - [x] Add SearchHistoryDropdown component
+  - [x] Style dropdown for light/dark modes
+  - [ ] Add server-side persistence
+  - [ ] Implement query deduplication
+  - [ ] Add search history export/import
 
 ## Backlog (Future Enhancements)
 

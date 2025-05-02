@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useUser } from '@clerk/clerk-react';
 import { AppLayout } from './components/layout/AppLayout';
-import { SearchInput } from './components/search/SearchInput';
+import { SearchBar } from './components/SearchBar';
 import { ResultsContainer } from './components/results/ResultsContainer';
 import { RFPQueryResult } from './services/api';
 import { searchMockRFP } from './services/mockData';
@@ -15,7 +15,7 @@ export default function App() {
   const handleSearch = async (query: string) => {
     if (!query.trim()) {
       setError('Please enter a search query');
-      return;
+      return [];
     }
 
     setIsLoading(true);
@@ -24,9 +24,11 @@ export default function App() {
     try {
       const searchResults = await searchMockRFP(query);
       setResults(searchResults);
+      return searchResults;
     } catch (error) {
       console.error('Search error:', error);
       setError('An error occurred while searching. Please try again.');
+      return [];
     } finally {
       setIsLoading(false);
     }
@@ -35,7 +37,11 @@ export default function App() {
   return (
     <AppLayout>
       <div className='max-w-4xl mx-auto'>
-        <SearchInput onSearch={handleSearch} isLoading={isLoading} />
+        <SearchBar
+          onSearch={handleSearch}
+          placeholder='Search RFP responses...'
+          className='mb-4'
+        />
 
         {error && (
           <div className='mt-4 p-4 bg-red-50 dark:bg-red-900/10 rounded-lg border border-red-200 dark:border-red-800'>
