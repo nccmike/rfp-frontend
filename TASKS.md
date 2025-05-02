@@ -43,18 +43,24 @@
 
 ### Phase 1: Result Comparison & Selection
 
-- [ ] Result Comparison UI
+- [x] Result Comparison UI
 
-  - [ ] Create CompareResults component
-  - [ ] Add side-by-side comparison view
-  - [ ] Implement result selection mechanism
-  - [ ] Add visual indicators for selected results
+  - [x] Create CompareResults component
+  - [x] Add side-by-side comparison view
+  - [x] Implement result selection mechanism
+  - [x] Add visual indicators for selected results
+  - [x] Improve layout and spacing
+  - [x] Fix content overflow and gradient issues
+  - [x] Enhance collapsed state visibility
+  - [x] Align score badges consistently
 
-- [ ] Favorites System
-  - [ ] Create FavoriteResults component
-  - [ ] Implement favorite/selection storage
-  - [ ] Add favorite result indicators
-  - [ ] Create favorites management view
+- [x] Favorites System
+  - [x] Create FavoriteResults component
+  - [x] Implement favorite/selection storage
+  - [x] Add favorite result indicators
+  - [x] Create favorites management view
+  - [x] Add heart icon for favoriting
+  - [x] Implement favorite toggling with visual feedback
 
 ### Phase 2: Query History & Management
 
@@ -94,17 +100,17 @@
 
 - [ ] Convex Functions
 
-  - [ ] Query mutations and queries
-    - [ ] Save search queries
-    - [ ] Fetch query history
-    - [ ] Update query metadata
-  - [ ] Response mutations and queries
-    - [ ] Save favorite responses
-    - [ ] Fetch responses by query
-    - [ ] Update response metadata
-  - [ ] Selection tracking
-    - [ ] Record user selections
-    - [ ] Update selection metrics
+  - [x] Query mutations and queries
+    - [x] Save search queries
+    - [x] Fetch query history
+    - [x] Update query metadata
+  - [x] Response mutations and queries
+    - [x] Save favorite responses
+    - [x] Fetch responses by query
+    - [x] Update response metadata
+  - [x] Selection tracking
+    - [x] Record user selections
+    - [x] Update selection metrics
   - [ ] Real-time subscriptions
     - [ ] Live query updates
     - [ ] Response selection tracking
