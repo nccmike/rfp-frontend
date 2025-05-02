@@ -3,8 +3,10 @@ import { AppLayout } from './components/layout/AppLayout';
 import { SearchInput } from './components/search/SearchInput';
 import { ResultsList } from './components/results/ResultsList';
 import { searchRFP, RFPQueryResult, APIError } from './services/api';
+import { SignInButton } from '@clerk/clerk-react';
+import { Authenticated, Unauthenticated } from 'convex/react';
 
-function App() {
+function AuthenticatedApp() {
   const [searchResults, setSearchResults] = useState<RFPQueryResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -59,6 +61,31 @@ function App() {
         <ResultsList results={searchResults} isLoading={isLoading} />
       </div>
     </AppLayout>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Authenticated>
+        <AuthenticatedApp />
+      </Authenticated>
+      <Unauthenticated>
+        <AppLayout>
+          <div className='flex flex-col items-center justify-center min-h-[calc(100vh-theme(spacing.16))]'>
+            <h1 className='text-2xl font-bold mb-4'>Welcome to RFP Search</h1>
+            <p className='mb-8 text-gray-600 dark:text-gray-300'>
+              Please sign in with your credentials
+            </p>
+            <SignInButton mode='modal'>
+              <button className='bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded'>
+                Sign In
+              </button>
+            </SignInButton>
+          </div>
+        </AppLayout>
+      </Unauthenticated>
+    </>
   );
 }
 
