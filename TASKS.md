@@ -215,6 +215,63 @@
   - [ ] Track improvement metrics
   - [ ] Measure user satisfaction
 
+### Phase 6: Saved Queries & Knowledge Base
+
+- [ ] Saved Responses UI (2024-05-10)
+
+  - [ ] Create SavedResponses page/view
+  - [ ] Design response card component
+  - [ ] Implement save action in search results
+  - [ ] Add notes and feedback collection
+  - [ ] Create filtering and sorting options
+  - [ ] Add bulk operations support
+  - [ ] Implement search within saved items
+
+- [ ] Search Results Enhancement
+
+  - [ ] Add saved response indicators
+  - [ ] Create success rate badges
+  - [ ] Implement usage statistics
+  - [ ] Add quick-save functionality
+  - [ ] Add context preview
+  - [ ] Implement result boosting for saved items
+
+- [ ] Data Management
+
+  - [ ] Update schema (remove favorites)
+  - [ ] Create save/update mutations
+  - [ ] Implement deletion handling
+  - [ ] Add notes and feedback storage
+  - [ ] Create version tracking
+  - [ ] Add export functionality
+  - [ ] Implement data migration from favorites
+
+- [ ] Search Integration
+
+  - [ ] Enhance search with saved responses
+  - [ ] Implement result boosting
+  - [ ] Add similar query detection
+  - [ ] Create category-aware search
+  - [ ] Add tag-based filtering
+  - [ ] Implement usage-based ranking
+
+- [ ] Analytics & Metrics
+
+  - [ ] Track save patterns
+  - [ ] Monitor reuse statistics
+  - [ ] Calculate success rates
+  - [ ] Generate usage reports
+  - [ ] Measure search impact
+  - [ ] Track engagement metrics
+
+- [ ] Security & Sharing
+  - [ ] Implement access controls
+  - [ ] Add team sharing
+  - [ ] Create audit logging
+  - [ ] Add privacy settings
+  - [ ] Implement backup system
+  - [ ] Add compliance tracking
+
 ## Discovered During Work
 
 - [x] Add mock data system for development

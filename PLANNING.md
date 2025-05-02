@@ -79,7 +79,7 @@ A lightweight React + Vite application designed to assist users in responding to
 - Database integration readiness
 - User preferences storage
 - Query history tracking with relevance feedback
-- Favorite responses with metadata
+- Saved responses with rich metadata
 - Response ranking system based on user selections
 - Collaborative filtering for result enhancement
 
@@ -87,7 +87,7 @@ A lightweight React + Vite application designed to assist users in responding to
 
 #### User Feedback Collection
 
-- Track which responses users select as favorites
+- Track which responses users save
 - Store query-response pairs with selection metadata
 - Capture context and relevance signals
 - Track response usage patterns
@@ -119,7 +119,7 @@ A lightweight React + Vite application designed to assist users in responding to
 - Response Collection
   - Response content
   - Source document
-  - Selection count
+  - Save count
   - User ratings/feedback
   - Query associations
   - Tags
@@ -133,12 +133,13 @@ A lightweight React + Vite application designed to assist users in responding to
     - Success rate
     - Modification history
     - Version tracking
-- User Selections
+- Saved Items
   - Query-response pairs
-  - Selection context
+  - Save context
   - Timestamp
   - Usage metrics
-  - Feedback tags
+  - User notes
+  - Feedback data
     - Relevance score
     - Usefulness rating
     - Modification required
@@ -154,10 +155,10 @@ A lightweight React + Vite application designed to assist users in responding to
       - Stores query history and metadata
       - Real-time updates for collaborative features
     - responses
-      - Stores favorited responses
-      - Includes selection metadata
+      - Stores saved responses
+      - Includes usage metadata
     - selections
-      - Tracks user selections and feedback
+      - Tracks saved items and feedback
       - Real-time analytics
     - tags
       - Tag definitions and relationships
@@ -196,7 +197,7 @@ interface Query {
 interface Response {
   content: string;
   sourceDocument: string;
-  selectionCount: number;
+  saveCount: number;
   tags: string[];
   metadata: {
     contentType: string;
@@ -207,12 +208,13 @@ interface Response {
   };
 }
 
-// Selection table
+// Selection table (for saved items)
 interface Selection {
   queryId: Id<'queries'>;
   responseId: Id<'responses'>;
   userId?: string;
   timestamp: number;
+  notes?: string;
   feedback: {
     relevanceScore: number;
     usefulnessRating: number;
@@ -220,6 +222,12 @@ interface Selection {
     contextAccuracy: number;
   };
   tags: string[];
+  metadata: {
+    lastUsed: number;
+    useCount: number;
+    successRate: number;
+    version: number;
+  };
 }
 
 // Tag table
@@ -269,6 +277,102 @@ interface Tag {
 - Export functionality
 - Collaborative features
 - Custom templates
+
+### Saved Queries & Responses System
+
+#### User Interface
+
+- **Saved Responses View**
+
+  - Dedicated page/section for viewing saved query-response pairs
+  - Organized by categories, tags, or date
+  - Search within saved items
+  - Usage statistics and history
+  - Bulk operations (delete, categorize, export)
+
+- **Search Results Integration**
+  - Visual indicators for previously saved responses
+  - Success rate badges
+  - Usage count indicators
+  - Quick access to full context
+  - Pin successful responses to top
+
+#### Data Architecture
+
+- **Storage**
+
+  - Query-response pairs
+  - User annotations and notes
+  - Usage metrics
+  - Success indicators
+  - Categories and tags
+  - Timestamps and history
+
+- **Relationships**
+  - Query to response mappings
+  - User to saved pairs
+  - Category hierarchies
+  - Tag associations
+  - Usage patterns
+
+#### Features
+
+- **Saving Mechanism**
+
+  - One-click save from search results
+  - Add notes and context
+  - Categorization options
+  - Tag assignment
+  - Success rate tracking
+
+- **Search Enhancement**
+
+  - Priority boost for saved responses
+  - Similar query matching
+  - Usage-based ranking
+  - Category-aware search
+  - Tag-based filtering
+
+- **Knowledge Management**
+  - Personal knowledge base
+  - Team sharing options
+  - Export capabilities
+  - Version tracking
+  - Usage analytics
+
+#### Analytics
+
+- **Usage Metrics**
+
+  - Save frequency
+  - Reuse patterns
+  - Success rates
+  - Popular categories
+  - Search impact
+
+- **Performance Indicators**
+  - Response effectiveness
+  - User engagement
+  - Knowledge base growth
+  - Search improvement
+  - Time savings
+
+#### Security & Privacy
+
+- **Access Control**
+
+  - Personal saves
+  - Team shares
+  - Public knowledge
+  - Version history
+  - Deletion policies
+
+- **Data Protection**
+  - Encryption
+  - Backup
+  - Audit trails
+  - Compliance tracking
+  - Privacy settings
 
 ## Style Guide
 
