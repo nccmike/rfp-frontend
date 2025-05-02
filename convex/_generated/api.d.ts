@@ -13,6 +13,9 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as queries from "../queries.js";
+import type * as responses from "../responses.js";
+import type * as selections from "../selections.js";
 import type * as types from "../types.js";
 
 /**
@@ -24,6 +27,9 @@ import type * as types from "../types.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  queries: typeof queries;
+  responses: typeof responses;
+  selections: typeof selections;
   types: typeof types;
 }>;
 export declare const api: FilterApi<

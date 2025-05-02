@@ -1,11 +1,19 @@
 import axios from 'axios';
 import { generateMockResults } from '../mocks/rfpData';
+import { Id } from '../../convex/_generated/dataModel';
 
 // Types
 export interface RFPQueryResult {
+  _id: Id<'responses'>;
+  queryId: Id<'queries'>;
   content: string;
   source: string;
   score: number;
+  metadata: {
+    category: string;
+    relevanceScore: number;
+    tags: string[];
+  };
 }
 
 export interface RFPSearchResponse {
